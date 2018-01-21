@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
+    dd('Hi! it is laravel 5.5');
     return view('welcome');
 });
