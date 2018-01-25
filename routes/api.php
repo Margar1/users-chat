@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
 
 Route::group(['prefix' => 'user', 'userId' => '[0-9]+'], function () {
     Route::put('/updated/{userId}','API\AuthController@updatedUser');
@@ -26,6 +23,5 @@ Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
 
 Route::group(['middleware' => 'auth:api','userId' => '[0-9]+'], function(){
-//    Route::put('/updated/{userId}','API\AuthController@updatedUser');
     Route::post('get-details', 'API\AuthController@getDetails');
 });
